@@ -12,7 +12,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="100dp"
             android:scaleType="centerCrop"
             android:id="@+id/album_art"
             android:src="@drawable/alas_i_cannot_swim"
@@ -98,5 +98,18 @@
                 android:text="@string/track_time"
                 android:id="@+id/length" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/lyrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/track_panel"
+            android:layout_margin="15dp"
+            android:text="@string/lyrics"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceInverse"
+            android:textSize="24sp"
+            android:textStyle="italic"
+            android:typeface="sans" />
     </RelativeLayout>
 </ScrollView>

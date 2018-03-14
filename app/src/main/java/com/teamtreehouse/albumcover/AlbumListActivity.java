@@ -59,14 +59,17 @@ public class AlbumListActivity extends Activity {
         mAlbumList.setLayoutManager(lm);
 
         final int[] albumArts = {
-                R.drawable.mean_something_kinder_than_wolves,
-                R.drawable.cylinders_chris_zabriskie,
-                R.drawable.broken_distance_sutro,
-                R.drawable.playing_with_scratches_ruckus_roboticus,
-                R.drawable.keep_it_together_guster,
-                R.drawable.the_carpenter_avett_brothers,
-                R.drawable.please_sondre_lerche,
-                R.drawable.direct_to_video_chris_zabriskie };
+                R.drawable.alas_i_cannot_swim,
+                R.drawable.before_the_dawn_wakes_us,
+                R.drawable.cky_vol_1,
+                R.drawable.i_and_love_and_you,
+                R.drawable.i_speak_because_i_can,
+                R.drawable.noble_beast,
+                R.drawable.our_endless_numbered_days,
+                R.drawable.push_the_sky_away,
+                R.drawable.riceboy_sleeps,
+                R.drawable.selected_ambientworks_vol_2,
+        };
 
         RecyclerView.Adapter adapter = new RecyclerView.Adapter<AlbumVH>() {
             @Override
