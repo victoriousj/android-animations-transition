@@ -22,11 +22,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b828ee02-fec7-4e3d-8ca2-e84311eabcfb" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/teamtreehouse/albumcover/transition/RevealTransition.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/teamtreehouse/albumcover/transition/WrapperAnimator.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/teamtreehouse/albumcover/AlbumDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/teamtreehouse/albumcover/AlbumDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/teamtreehouse/albumcover/transition/Fold.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/teamtreehouse/albumcover/transition/Fold.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/teamtreehouse/albumcover/transition/Scale.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/teamtreehouse/albumcover/transition/Scale.java" />
     </list>
     <ignored path="android-animations-transitions.iws" />
@@ -173,8 +169,8 @@
       <file leaf-file-name="Scale.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamtreehouse/albumcover/transition/Scale.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+            <state relative-caret-position="408">
+              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="26" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -2256,7 +2252,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521251497295" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521251674303" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2303,7 +2299,7 @@
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
       </Profilers>
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521251497295" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521251674303" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2485,7 +2481,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521251497296" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1521251674305" />
       </method>
     </configuration>
     <list size="1">
@@ -2622,7 +2618,21 @@
       <option name="project" value="LOCAL" />
       <updated>1521157536625</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Switched it up... again... so that we are using Marshmellow's animate api to accompolish the same thing (make the track and title panel disappear) through helper classes">
+      <created>1521251597695</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1521251597695</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Removed the animation set for the time being">
+      <created>1521251656412</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1521251656412</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2710,7 +2720,9 @@
     <MESSAGE value="added a setEnterAction method so that the current picture and colors are transfereed between scenes" />
     <MESSAGE value="working on being able to transition back and forth between collapse and expand albums" />
     <MESSAGE value="Added a transition back and forth between track panels being expanded and being collapsed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a transition back and forth between track panels being expanded and being collapsed" />
+    <MESSAGE value="Switched it up... again... so that we are using Marshmellow's animate api to accompolish the same thing (make the track and title panel disappear) through helper classes" />
+    <MESSAGE value="Removed the animation set for the time being" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed the animation set for the time being" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3150,8 +3162,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/teamtreehouse/albumcover/transition/Scale.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
+        <state relative-caret-position="408">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="26" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

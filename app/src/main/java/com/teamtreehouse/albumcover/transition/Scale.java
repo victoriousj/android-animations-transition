@@ -22,9 +22,9 @@ public class Scale extends Visibility{
 
     private Animator createScaleAnimator(View view, float fromScale, float toScale) {
         AnimatorSet set  = new AnimatorSet();
-//        ObjectAnimator x = ObjectAnimator.ofFloat(view, view.SCALE_X, fromScale, toScale);
-//        ObjectAnimator y = ObjectAnimator.ofFloat(view, view.SCALE_Y, fromScale, toScale);
-//        set.playTogether(x , y);
+        ObjectAnimator x = ObjectAnimator.ofFloat(view, view.SCALE_X, fromScale, toScale);
+        ObjectAnimator y = ObjectAnimator.ofFloat(view, view.SCALE_Y, fromScale, toScale);
+        set.playTogether(x , y);
         return  set;
     }
 }
