@@ -56,34 +56,6 @@ public class AlbumDetailActivity extends Activity {
         fab.setVisibility(View.INVISIBLE);
     }
 
-//    private void animate() {
-//        Animator scaleFab = AnimatorInflater.loadAnimator(this, R.animator.scale);
-//        scaleFab.setTarget(fab);
-//
-//        int titleStartValue = titlePanel.getTop();
-//        int titleEndValue = titlePanel.getBottom();
-//        ObjectAnimator animatorTitle = ObjectAnimator
-//                .ofInt(titlePanel, "bottom", titleStartValue, titleEndValue);
-//
-//        int trackStartValue = trackPanel.getTop();
-//        int trackEndValue = trackPanel.getBottom();
-//        ObjectAnimator animatorTrack = ObjectAnimator
-//                .ofInt(trackPanel, "bottom", trackStartValue, trackEndValue);
-//
-//        fab.setScaleY(0);
-//        fab.setScaleY(0);
-//
-//        titlePanel.setBottom(titleStartValue);
-//        titlePanel.setVisibility(View.VISIBLE);
-//
-//        trackPanel.setBottom(titleStartValue);
-//        trackPanel.setVisibility(View.VISIBLE);
-//
-//        AnimatorSet set = new AnimatorSet();
-//        set.playSequentially(animatorTitle, animatorTrack, scaleFab);
-//        set.start();
-//    }
-
     private Transition createTransition(){
         TransitionSet set = new TransitionSet();
         set.setOrdering(TransitionSet.ORDERING_SEQUENTIAL);
@@ -145,11 +117,6 @@ public class AlbumDetailActivity extends Activity {
 
         TransitionSet expandTransitionSet = new TransitionSet();
         expandTransitionSet.setOrdering(TransitionSet.ORDERING_SEQUENTIAL);
-
-//        Fade fadeLyrics = new Fade();
-//        fadeLyrics.setDuration(100);
-//        fadeLyrics.setStartDelay(200);
-//        expandTransitionSet.addTransition(fadeLyrics);
 
         ChangeBounds changeBounds = new ChangeBounds();
         changeBounds.setDuration(200);
