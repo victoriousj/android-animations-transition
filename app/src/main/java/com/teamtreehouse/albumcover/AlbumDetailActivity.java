@@ -1,9 +1,5 @@
 package com.teamtreehouse.albumcover;
 
-import android.animation.Animator;
-import android.animation.AnimatorInflater;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
@@ -13,12 +9,16 @@ import android.support.v7.graphics.Palette;
 import android.transition.ChangeBounds;
 import android.transition.Fade;
 import android.transition.Scene;
+import android.transition.Transition;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
+import com.teamtreehouse.albumcover.transition.Fold;
+import com.teamtreehouse.albumcover.transition.Scale;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -49,41 +49,69 @@ public class AlbumDetailActivity extends Activity {
         setupTransitions();
 
 
-        trackPanel.setVisibility(View.INVISIBLE);
-        titlePanel.setVisibility(View.INVISIBLE);
+//        trackPanel.setVisibility(View.INVISIBLE);
+//        titlePanel.setVisibility(View.INVISIBLE);
     }
 
-    private void animate() {
-        Animator scaleFab = AnimatorInflater.loadAnimator(this, R.animator.scale);
-        scaleFab.setTarget(fab);
+//    private void animate() {
+//        Animator scaleFab = AnimatorInflater.loadAnimator(this, R.animator.scale);
+//        scaleFab.setTarget(fab);
+//
+//        int titleStartValue = titlePanel.getTop();
+//        int titleEndValue = titlePanel.getBottom();
+//        ObjectAnimator animatorTitle = ObjectAnimator
+//                .ofInt(titlePanel, "bottom", titleStartValue, titleEndValue);
+//
+//        int trackStartValue = trackPanel.getTop();
+//        int trackEndValue = trackPanel.getBottom();
+//        ObjectAnimator animatorTrack = ObjectAnimator
+//                .ofInt(trackPanel, "bottom", trackStartValue, trackEndValue);
+//
+//        fab.setScaleY(0);
+//        fab.setScaleY(0);
+//
+//        titlePanel.setBottom(titleStartValue);
+//        titlePanel.setVisibility(View.VISIBLE);
+//
+//        trackPanel.setBottom(titleStartValue);
+//        trackPanel.setVisibility(View.VISIBLE);
+//
+//        AnimatorSet set = new AnimatorSet();
+//        set.playSequentially(animatorTitle, animatorTrack, scaleFab);
+//        set.start();
+//    }
 
-        int titleStartValue = titlePanel.getTop();
-        int titleEndValue = titlePanel.getBottom();
-        ObjectAnimator animatorTitle = ObjectAnimator
-                .ofInt(titlePanel, "bottom", titleStartValue, titleEndValue);
+    private Transition createTransition(){
+        TransitionSet set = new TransitionSet();
+        set.setOrdering(TransitionSet.ORDERING_SEQUENTIAL);
 
-        int trackStartValue = trackPanel.getTop();
-        int trackEndValue = trackPanel.getBottom();
-        ObjectAnimator animatorTrack = ObjectAnimator
-                .ofInt(trackPanel, "bottom", trackStartValue, trackEndValue);
+        Transition tFab = new Scale();
+        tFab.setDuration(150);
+        tFab.addTarget(fab);
 
-        fab.setScaleY(0);
-        fab.setScaleY(0);
+        Transition tTrack = new Fold();
+        tTrack.setDuration(150);
+        tTrack.addTarget(trackPanel);
 
-        titlePanel.setBottom(titleStartValue);
-        titlePanel.setVisibility(View.VISIBLE);
+        Transition tTitle = new Fold();
+        tTitle.setDuration(150);
+        tTitle.addTarget(titlePanel);
 
-        trackPanel.setBottom(titleStartValue);
-        trackPanel.setVisibility(View.VISIBLE);
+        set.addTransition(tTrack);
+        set.addTransition(tTitle);
+        set.addTransition(tFab);
 
-        AnimatorSet set = new AnimatorSet();
-        set.playSequentially(animatorTitle, animatorTrack, scaleFab);
-        set.start();
+        return set;
     }
 
     @OnClick(R.id.album_art)
     public void onAlbumArtClick(View view) {
-        animate();
+        Transition transition = createTransition();
+        TransitionManager.beginDelayedTransition(detailContainer, transition);
+
+        fab.setVisibility(View.INVISIBLE);
+        titlePanel.setVisibility(View.INVISIBLE);
+        trackPanel.setVisibility(View.INVISIBLE);
     }
 
     @OnClick(R.id.track_panel)
