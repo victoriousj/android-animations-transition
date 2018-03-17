@@ -9,9 +9,11 @@ import android.support.v7.graphics.Palette;
 import android.transition.ChangeBounds;
 import android.transition.Fade;
 import android.transition.Scene;
+import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionManager;
 import android.transition.TransitionSet;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -49,8 +51,9 @@ public class AlbumDetailActivity extends Activity {
         setupTransitions();
 
 
-//        trackPanel.setVisibility(View.INVISIBLE);
-//        titlePanel.setVisibility(View.INVISIBLE);
+        trackPanel.setVisibility(View.INVISIBLE);
+        titlePanel.setVisibility(View.INVISIBLE);
+        fab.setVisibility(View.INVISIBLE);
     }
 
 //    private void animate() {
@@ -85,20 +88,20 @@ public class AlbumDetailActivity extends Activity {
         TransitionSet set = new TransitionSet();
         set.setOrdering(TransitionSet.ORDERING_SEQUENTIAL);
 
-        Transition tFab = new Scale();
-        tFab.setDuration(150);
-        tFab.addTarget(fab);
+        Transition tTitle = new Fold();
+        tTitle.setDuration(150);
+        tTitle.addTarget(titlePanel);
 
         Transition tTrack = new Fold();
         tTrack.setDuration(150);
         tTrack.addTarget(trackPanel);
 
-        Transition tTitle = new Fold();
-        tTitle.setDuration(150);
-        tTitle.addTarget(titlePanel);
+        Transition tFab = new Scale();
+        tFab.setDuration(150);
+        tFab.addTarget(fab);
 
-        set.addTransition(tTrack);
         set.addTransition(tTitle);
+        set.addTransition(tTrack);
         set.addTransition(tFab);
 
         return set;
@@ -109,9 +112,9 @@ public class AlbumDetailActivity extends Activity {
         Transition transition = createTransition();
         TransitionManager.beginDelayedTransition(detailContainer, transition);
 
-        fab.setVisibility(View.INVISIBLE);
-        titlePanel.setVisibility(View.INVISIBLE);
-        trackPanel.setVisibility(View.INVISIBLE);
+        titlePanel.setVisibility(View.VISIBLE);
+        trackPanel.setVisibility(View.VISIBLE);
+        fab.setVisibility(View.VISIBLE);
     }
 
     @OnClick(R.id.track_panel)
@@ -125,6 +128,7 @@ public class AlbumDetailActivity extends Activity {
     }
 
     private void setupTransitions() {
+        getWindow().setEnterTransition(new Slide(Gravity.END));
         mTransitionManager = new TransitionManager();
         ViewGroup transitionRoot = detailContainer;
 

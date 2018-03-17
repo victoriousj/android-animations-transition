@@ -1,6 +1,7 @@
 package com.teamtreehouse.albumcover;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
@@ -41,7 +42,7 @@ public class AlbumListActivity extends Activity {
         @Bind(R.id.album_art)
         ImageView albumArt;
 
-        public AlbumVH(View itemView, OnVHClickedListener listener) {
+        private AlbumVH(View itemView, OnVHClickedListener listener) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             itemView.setOnClickListener(this);
@@ -82,7 +83,9 @@ public class AlbumListActivity extends Activity {
                         Intent intent = new Intent(AlbumListActivity.this, AlbumDetailActivity.class);
                         intent.putExtra(AlbumDetailActivity.EXTRA_ALBUM_ART_RESID, albumArtResId);
 
-                        startActivity(intent);
+                        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(
+                                AlbumListActivity.this);
+                        startActivity(intent, options.toBundle());
                     }
                 });
             }
