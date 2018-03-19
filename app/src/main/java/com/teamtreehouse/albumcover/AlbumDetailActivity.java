@@ -100,7 +100,8 @@ public class AlbumDetailActivity extends Activity {
     }
 
     private void setupTransitions() {
-        getWindow().setEnterTransition(new Slide(Gravity.END));
+//        getWindow().setEnterTransition(new Slide(Gravity.END));
+//        getWindow().setReturnTransition(new Fade());
         mTransitionManager = new TransitionManager();
         ViewGroup transitionRoot = detailContainer;
 
