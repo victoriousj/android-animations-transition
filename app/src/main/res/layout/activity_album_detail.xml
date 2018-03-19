@@ -2,8 +2,7 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/detail_container"
@@ -12,7 +11,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="400dp"
+            android:layout_height="600dp"
             android:scaleType="centerCrop"
             android:id="@+id/album_art"
             android:src="@drawable/alas_i_cannot_swim"
@@ -97,6 +96,11 @@
                 android:layout_marginEnd="20dp"
                 android:text="@string/track_time"
                 android:id="@+id/length" />
+            <TextView
+                android:id="@+id/lyrics"
+                android:visibility="invisible"
+                android:layout_height="0dp"
+                android:layout_width="0dp"/>
         </LinearLayout>
     </RelativeLayout>
 </ScrollView>

@@ -5,6 +5,8 @@ import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v7.graphics.Palette;
 import android.transition.ChangeBounds;
 import android.transition.Fade;
@@ -16,8 +18,11 @@ import android.transition.TransitionSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.teamtreehouse.albumcover.transition.Fold;
 import com.teamtreehouse.albumcover.transition.Scale;
@@ -36,6 +41,7 @@ public class AlbumDetailActivity extends Activity {
     @Bind(R.id.title_panel) ViewGroup titlePanel;
     @Bind(R.id.track_panel) ViewGroup trackPanel;
     @Bind(R.id.detail_container) ViewGroup detailContainer;
+    @Bind(R.id.lyrics) TextView lyrics;
 
     private TransitionManager mTransitionManager;
     private Scene mExpandedScene;
@@ -49,11 +55,6 @@ public class AlbumDetailActivity extends Activity {
         ButterKnife.bind(this);
         populate();
         setupTransitions();
-
-
-        trackPanel.setVisibility(View.INVISIBLE);
-        titlePanel.setVisibility(View.INVISIBLE);
-        fab.setVisibility(View.INVISIBLE);
     }
 
     private Transition createTransition(){
@@ -75,7 +76,6 @@ public class AlbumDetailActivity extends Activity {
         set.addTransition(tTitle);
         set.addTransition(tTrack);
         set.addTransition(tFab);
-
         return set;
     }
 
@@ -100,8 +100,13 @@ public class AlbumDetailActivity extends Activity {
     }
 
     private void setupTransitions() {
-//        getWindow().setEnterTransition(new Slide(Gravity.END));
-//        getWindow().setReturnTransition(new Fade());
+        Slide slide = new Slide(Gravity.BOTTOM);
+        slide.excludeTarget(android.R.id.statusBarBackground, true);
+
+        getWindow().setEnterTransition(slide);
+        getWindow().setSharedElementsUseOverlay(false);
+
+
         mTransitionManager = new TransitionManager();
         ViewGroup transitionRoot = detailContainer;
 
@@ -189,5 +194,13 @@ public class AlbumDetailActivity extends Activity {
                 palette.getLightVibrantColor(defaultFabColor)
         };
         fab.setBackgroundTintList(new ColorStateList(states, colors));
+
+        lyrics.setBackgroundColor(palette.getDarkMutedColor(defaultPanelColor));
+
+
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(palette.getDarkVibrantColor(defaultPanelColor));
     }
 }
